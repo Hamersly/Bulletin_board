@@ -1,6 +1,7 @@
 from django.db import models
 from mptt.models import MPTTModel, TreeForeignKey
 from django.contrib.auth.models import User
+from django.urls import reverse
 
 
 class Category(MPTTModel):
@@ -38,8 +39,9 @@ class DateAdvets(models.Model):
         return self.name
 
     class Meta:
-        verbose_name = 'Фильтр'
-        verbose_name_plural = 'Фильтры'
+        verbose_name = 'Срок'
+        verbose_name_plural = 'Сроки'
+        ordering = ['id']
 
 
 class Advert(models.Model):
@@ -61,6 +63,9 @@ class Advert(models.Model):
 
     def __str__(self):
         return self.subject
+
+    def get_absolute_url(self):
+        return reverse('advert_detail', kwargs={'category': self.category.slug, 'slug': self.slug})
 
     class Meta:
         verbose_name = 'Объявление'

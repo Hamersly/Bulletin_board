@@ -3,7 +3,7 @@ from mptt.admin import MPTTModelAdmin
 
 from .models import Category, FilterAdvets, DateAdvets, Advert
 
-admin.site.register(Category)
+@admin.register(Category)
 
 
 class CategoryAdmin(MPTTModelAdmin):
@@ -13,7 +13,7 @@ class CategoryAdmin(MPTTModelAdmin):
     prepopulated_fields = {'slug': ('name',)}
 
 
-admin.site.register(FilterAdvets)
+@admin.register(FilterAdvets)
 
 
 class FilterAdvertsAdmin(admin.ModelAdmin):
@@ -23,7 +23,7 @@ class FilterAdvertsAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('name',)}
 
 
-admin.site.register(DateAdvets)
+@admin.register(DateAdvets)
 
 
 class DateAdvetsAdmin(admin.ModelAdmin):
@@ -33,7 +33,7 @@ class DateAdvetsAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('name',)}
 
 
-admin.site.register(Advert)
+@admin.register(Advert)
 
 
 class AdvertAdmin(admin.ModelAdmin):

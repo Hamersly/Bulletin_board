@@ -1,3 +1,20 @@
 from django.contrib import admin
+from .models import Gallery, Photo
 
-# Register your models here.
+@admin.register(Gallery)
+
+
+class GalleryAdmin(admin.ModelAdmin):
+    # ''Галлерея'''
+    list_display = ('name','created','id')
+    prepopulated_fields = {'slug': ('name',)}
+
+
+@admin.register(Photo)
+
+
+class PhotoAdmin(admin.ModelAdmin):
+    # ''Изображения'''
+    list_display = ('name','created','id')
+    prepopulated_fields = {'slug': ('name',)}
+
