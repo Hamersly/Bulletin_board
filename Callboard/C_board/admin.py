@@ -41,3 +41,4 @@ class AdvertAdmin(admin.ModelAdmin):
     list_display = ('id', 'subject', 'user', 'category', 'filters', 'date', 'price', 'created', 'moderation')
     list_display_links = ('subject',)
     list_filter = ('user', 'category', 'filters', 'date', 'price')
+    prepopulated_fields = {'slug': ('user', 'subject')}

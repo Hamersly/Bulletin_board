@@ -4,7 +4,8 @@
     {%for advert in object_list %}
         <h2><a href="{{ advert.get_absolute_url }}">{{ advert.subject}}</a></h2>
         <p>{{ advert.price }}</p>
+        <p>{{ advert.filters }}</p>
         <p>{{ advert.created }}</p>
         <hr>
     {%endfor%}
-{%endblock content%}
+{% endblock content%}
