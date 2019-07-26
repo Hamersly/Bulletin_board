@@ -1,11 +1,30 @@
 {% extends 'base.html' %}
 
-{%block content%}
-    {%for advert in object_list %}
-        <h2><a href="{{ advert.get_absolute_url }}">{{ advert.subject}}</a></h2>
-        <p>{{ advert.price }}</p>
-        <p>{{ advert.filters }}</p>
-        <p>{{ advert.created }}</p>
-        <hr>
+{%block category%}
+    {%for cat in category %}
+    <li class="list-group-item">{{advert.category.name}}</li>
     {%endfor%}
-{% endblock content%}
+{%endblock %}
+
+{%block content%}
+        {%for advert in object_list %}
+
+
+            <div class="col-md-3">
+                <div class="card" style="width:200px">
+                    <img class="card-img-top" src="{{ advert.images.photos. }}" alt="Card image">
+                    <div class="card-body">
+                        <h4 class="card-title">{{ advert.filters }}</h4>
+                        <p class="card-text">{{ advert.price }}</p>
+                        <a href="{{ advert.get_absolute_url }}" class="btn btn-primary">Перейти</a>
+                    </div>
+                </div>
+
+            </div>
+
+
+        {%endfor%}
+        {%endblock %}
+
+
+

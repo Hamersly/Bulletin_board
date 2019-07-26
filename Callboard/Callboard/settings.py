@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'mptt',
     'C_board',
     'gallery',
+    'profiles',
 
 
 ]
